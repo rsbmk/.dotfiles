@@ -24,6 +24,8 @@ alias ga="git add -A"
 alias gc="git commit -m $1"
 alias gca=" git commit --amend --no-edit"
 
+alias gpsh="git branch | fzf | xargs git push origin "
+
 alias grb="git branch | fzf | xargs -I_ git rebase _"
 alias grbc="git rebase --continue"
 alias grba="git rebase --abort"
