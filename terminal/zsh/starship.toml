@@ -1,0 +1,18 @@
+# el prompot
+# format="$all$directory$symbol" 
+
+# supuestamente me evita una nueva linea pero no se bien que hace
+# add_newline=false
+
+# cambia el caracter y los colores del del simbolo
+# [character]
+# success_symbol = "[{rsbmk} =>](bold green) "
+# error_symbol = "[{rsbmk} =>](bold red) "
+
+# esto es para cambia el prompot pone todo en una linea
+# pero el sombolo lo pone a la izq y el resto a la derecha
+# A minimal left prompt
+# format = """$character"""
+
+# move the rest of the prompt to the right
+# right_format = """$all"""

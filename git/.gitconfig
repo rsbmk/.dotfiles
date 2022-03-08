@@ -1,0 +1,16 @@
+[user]
+	name = Roberto Bocio Melo
+	email = elpicapica01@gmail.com
+[core]
+	editor = code
+	excludesfile = /home/rsbmk/.gitignore_global
+[fetch]
+	prune = true
+[pager]
+	branch = false
+	log = true
+[color]
+	diff = auto
+	status=auto
+	branch=auto
+	ui=true

@@ -1,0 +1,87 @@
+#!/bin/env bash
+# git switch
+gsw() {
+  if [[ -n $1 ]]; then
+    git switch "$1"
+  else
+    git branch | fzf | xargs -I_ git switch _
+  fi
+}
+
+# git pull
+gp() {
+  if [[ $# -eq 0 ]]; then
+    git pull --all -p --rebase
+  else
+    git pull origin "$1" --rebase
+  fi
+}
+
+updateAll() {
+  _OUTPUT=$(sudo apt-get update -qq)
+  echo "$_OUTPUT"
+  if [[ -z $_OUTPUT ]]; then
+    # sudo apt-get dist-upgrade -y
+    echo "dio $_OUTPUT"
+  else
+    echo "No necessary updates!"
+  fi
+}
+
+function cdd() {
+  cd "$(ls -d -- */ | fzf)" || echo "Invalid directory"
+}
+
+go_to_job() {
+  proyect=$(ls ~/Code/job/ | fzf)
+  cd ~/Code/job/"$proyect" || exit
+}
+
+go_to_dev() {
+  proyect=$(ls ~/Code/dev/ | fzf)
+  cd ~/Code/dev/"$proyect" || exit
+}
+
+# open the proyect work in code and terminal
+open_job() {
+  poryectName=$(ls ~/Code/job | fzf) 
+  cd ~/Code/job"/$poryectName" || exit
+  code ~/Code/job/"$poryectName"
+}
+
+# open the proyect work in code and terminal
+open_dev() {
+  poryectName=$(ls ~/Code/dev | fzf) 
+  cd ~/Code/dev/"$poryectName "|| exit
+  code ~/Code/dev/"$poryectName"
+}
+
+# clone github repo
+clone_git_repo() {
+  local -r repo_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/user/repos?per_page=200" | jq --raw-output ".[].name" | fzf)
+  git clone "git@github.com:rsbmk/$repo_url.git"
+  echo "$repo_url"
+}
+
+# clone gitlab repo
+clone_gitlab_repo() {
+  local -r repo_url=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" "https://gitlab.com/api/v4/users/$USERNAME_GITLAB/starred_projects" | jq --raw-output '.[].path' | fzf)
+  git clone "git@gitlab.com:devlab-ec/$repo_url.git"
+  echo "$repo_url"
+}
+
+docker_connect() {
+  if docker ps >/dev/null 2>&1; then
+  container=$(docker ps | awk '{if (NR!=1) print $1 ": " $(NF)}' | fzf --height 40%)
+
+  if [[ -n $container ]]; then
+    container_id=$(echo "$container "| awk -F ': ' '{print $1}')
+
+    docker exec -it "$container_id" /bin/bash || docker exec -it "$container_id" /bin/sh
+  else
+    echo "You haven't selected any container! ༼つ◕_◕༽つ"
+  fi
+else
+  echo "Docker daemon is not running! (ಠ_ಠ)"
+fi
+}

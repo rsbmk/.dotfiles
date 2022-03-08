@@ -1,0 +1,48 @@
+#!/bin/env bash
+alias la="ls -a"
+alias sudo="sudo"
+alias zshc="code ~/.zshrc ~/.scriptzsh/"
+alias dotfiles="cd ~/.dotfiles"
+
+# updates
+alias zimup="zimfw update && zimfw upgrade"
+alias up="sudo apt update"
+alias ug="sudo apt dist-upgrade -y"
+
+alias c="clear"
+
+alias gtj="go_to_job"
+alias gtd="go_to_dev"
+alias opj="open_job"
+alias opd="open_dev"
+
+# gits
+alias gs="git status"
+alias gl="git log --graph --abbrev-commit "
+alias ga="git add -A"
+
+alias gc="git commit -m $1"
+alias gca=" git commit --amend --no-edit"
+
+alias grb="git branch | fzf | xargs -I_ git rebase _"
+alias grbc="git rebase --continue"
+alias grba="git rebase --abort"
+alias grbs="git rebase --skip"
+
+alias gm="git branch | grep -v '\*' | fzf | xargs -I_ git merge _"
+alias gmc="git merge --continue"
+alias gma="git merge --abort"
+alias gms="git merge --skip"
+
+alias gswr="git branch -a | fzf | xargs -I_ git switch _"
+alias gswc="git switch -c $1"
+
+alias gr="git reset --soft HEAD~1"
+
+alias gf="git fetch --all -p"
+
+alias gbd="git branch | grep -v '\*' | fzf | xargs -I_ git branch -d _"
+
+# clone repos
+alias ghcl="clone_git_repo"
+alias glcl="clone_gitlab_repo"
