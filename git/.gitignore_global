@@ -33,3 +33,10 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+#############################################
+# Personal file
+#############################################
+todo
+node_modules/
+dist/

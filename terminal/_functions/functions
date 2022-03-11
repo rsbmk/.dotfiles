@@ -13,19 +13,18 @@ gp() {
   if [[ $# -eq 0 ]]; then
     git pull --all -p --rebase
   else
-    git pull origin "$1" --rebase
+    git branch | fzf | xargs -I_ git pull origin _ -p --rebase
+    # git pull origin "$1" --rebase
   fi
 }
 
 updateAll() {
-  _OUTPUT=$(sudo apt-get update -qq)
-  echo "$_OUTPUT"
-  if [[ -z $_OUTPUT ]]; then
-    # sudo apt-get dist-upgrade -y
-    echo "dio $_OUTPUT"
-  else
-    echo "No necessary updates!"
-  fi
+  sudo apt update;
+  sudo apt upgrade -y;
+  sudo apt dist-upgrade -y;
+  sudo apt autoremove -y;
+  sudo apt autoclean -y;
+  zimup;
 }
 
 function cdd() {
@@ -68,20 +67,4 @@ clone_gitlab_repo() {
   local -r repo_url=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" "https://gitlab.com/api/v4/users/$USERNAME_GITLAB/starred_projects" | jq --raw-output '.[].path' | fzf)
   git clone "git@gitlab.com:devlab-ec/$repo_url.git"
   echo "$repo_url"
-}
-
-docker_connect() {
-  if docker ps >/dev/null 2>&1; then
-  container=$(docker ps | awk '{if (NR!=1) print $1 ": " $(NF)}' | fzf --height 40%)
-
-  if [[ -n $container ]]; then
-    container_id=$(echo "$container "| awk -F ': ' '{print $1}')
-
-    docker exec -it "$container_id" /bin/bash || docker exec -it "$container_id" /bin/sh
-  else
-    echo "You haven't selected any container! ༼つ◕_◕༽つ"
-  fi
-else
-  echo "Docker daemon is not running! (ಠ_ಠ)"
-fi
 }

@@ -1,0 +1,15 @@
+code --install-extension bradlc.vscode-tailwindcss
+code --install-extension christian-kohler.path-intellisense
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eamodio.gitlens
+code --install-extension esbenp.prettier-vscode
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension GitHub.copilot
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension pflannery.vscode-versionlens
+code --install-extension redhat.vscode-yaml
+code --install-extension timonwong.shellcheck
+code --install-extension usernamehw.errorlens
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension wix.vscode-import-cost
+code --install-extension zhuangtongfa.material-theme

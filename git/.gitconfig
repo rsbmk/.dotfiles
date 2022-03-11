@@ -1,16 +1,74 @@
 [user]
 	name = Roberto Bocio Melo
 	email = elpicapica01@gmail.com
+
 [core]
 	editor = code
-	excludesfile = /home/rsbmk/.gitignore_global
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes
+	autocrlf = input
+	trustctime = false
+	precomposeunicode = false
+	pager = delta --dark
+	ignorecase = false
+
 [fetch]
 	prune = true
+
 [pager]
 	branch = false
 	log = true
+
 [color]
 	diff = auto
-	status=auto
-	branch=auto
-	ui=true
+	status = auto
+	branch = auto
+	ui = true
+
+[push]
+	default = simple
+
+[delta]
+    features = line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
+[help]
+	autocorrect = 1
+
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
