@@ -9,7 +9,6 @@
 	autocrlf = input
 	trustctime = false
 	precomposeunicode = false
-	pager = delta --dark
 	ignorecase = false
 
 [fetch]
@@ -25,8 +24,8 @@
 	branch = auto
 	ui = true
 
-[push]
-	default = simple
+# [push]
+# 	default = simple
 
 [delta]
     features = line-numbers decorations
@@ -69,6 +68,6 @@
 	changed = green
 	untracked = cyan
 
-[apply]
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+# [apply]
+# 	# Detect whitespace errors when applying a patch
+# 	whitespace = fix

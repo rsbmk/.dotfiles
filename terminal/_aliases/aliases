@@ -19,9 +19,8 @@ alias opd="open_dev"
 # gits
 alias gs="git status"
 alias gl="git log --graph --abbrev-commit "
-alias ga="git add -A"
 
-alias gc="git commit -m $1"
+alias gc="git commit -m $*"
 alias gca=" git commit --amend --no-edit"
 
 alias gpsh="git branch | fzf | xargs git push origin "

@@ -71,5 +71,6 @@
   "git.autofetch": true,
   "shellcheck.enable": true,
   "shellcheck.enableQuickFix": true,
-  "shellcheck.run": "onSave"
+  "shellcheck.run": "onSave",
+  "diffEditor.ignoreTrimWhitespace": false
 }

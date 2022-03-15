@@ -18,6 +18,15 @@ gp() {
   fi
 }
 
+# git add 
+ga() {
+  if [[ $# -eq 0 ]]; then
+    git add -A
+  else
+    git add "$*"
+  fi
+}
+
 updateAll() {
   sudo apt update;
   sudo apt upgrade -y;
@@ -64,7 +73,7 @@ clone_git_repo() {
 
 # clone gitlab repo
 clone_gitlab_repo() {
-  local -r repo_url=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" "https://gitlab.com/api/v4/users/$USERNAME_GITLAB/starred_projects" | jq --raw-output '.[].path' | fzf)
+  local -r repo_url=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" "https://gitlab.com/api/v4/users/robertobocio/starred_projects" | jq --raw-output '.[].path' | fzf)
   git clone "git@gitlab.com:devlab-ec/$repo_url.git"
   echo "$repo_url"
 }
