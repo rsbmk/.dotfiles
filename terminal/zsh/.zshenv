@@ -1,3 +1,3 @@
 . "$HOME/.cargo/env"
-GITHUB_TOKEN="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"
+GITHUB_TOKEN="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"
 GITLAB_TOKEN="glpat-neyRTfsKt_jPzZyy2Dqb"
