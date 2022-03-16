@@ -8,6 +8,7 @@ code --install-extension GitHub.copilot
 code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension pflannery.vscode-versionlens
 code --install-extension redhat.vscode-yaml
+code --install-extension styled-components.vscode-styled-components
 code --install-extension timonwong.shellcheck
 code --install-extension usernamehw.errorlens
 code --install-extension VisualStudioExptTeam.vscodeintellicode
