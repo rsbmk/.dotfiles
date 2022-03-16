@@ -1,6 +1,7 @@
 [user]
 	name = Roberto Bocio Melo
-	email = elpicapica01@gmail.com
+	email = robertobocio@01lab.co
+	# email = elpicapica01@gmail.com
 
 [core]
 	editor = code
@@ -24,8 +25,8 @@
 	branch = auto
 	ui = true
 
-# [push]
-# 	default = simple
+[push]
+	default = simple
 
 [delta]
     features = line-numbers decorations
