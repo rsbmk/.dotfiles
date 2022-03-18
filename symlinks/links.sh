@@ -1,5 +1,6 @@
 #!/bin/env bash
-rm -rf ~/.ssh ~/.config/Code/User ~/.gitignore_global ~/.gitconfig ~/.config/starship.toml ~/.zshenv ~/.zshrc ~/.zimrc ~/.bashrc ~/.gitattributes
+rm -rf ~/.config/Code/User ~/.gitignore_global ~/.gitconfig ~/.config/starship.toml ~/.zshenv ~/.zshrc ~/.zimrc ~/.bashrc ~/.gitattributes
+# ~/.ssh
 ln -s "$HOME/.dotfiles/terminal/bash/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/terminal/zsh/.zimrc" "$HOME/.zimrc"
 ln -s "$HOME/.dotfiles/terminal/zsh/.zshrc" "$HOME/.zshrc"
