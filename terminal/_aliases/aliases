@@ -23,7 +23,7 @@ alias gl="git log --graph --abbrev-commit "
 alias gc="git commit -m $*"
 alias gca=" git commit --amend --no-edit"
 
-alias gpsh="git branch | fzf | xargs git push origin "
+alias gpsh="git branch | fzf | xargs -I_ git push origin _ "
 
 alias grb="git branch | fzf | xargs -I_ git rebase _"
 alias grbc="git rebase --continue"
@@ -42,7 +42,7 @@ alias gr="git reset --soft HEAD~1"
 
 alias gf="git fetch --all -p"
 
-alias gbd="git branch | grep -v '\*' | fzf | xargs -I_ git branch -d _"
+alias gbd="git branch | grep -v '\*' | fzf | xargs -I_ git branch -D _"
 
 # clone repos
 alias ghcl="clone_git_repo"
