@@ -13,7 +13,7 @@ gp() {
   if [[ $# -eq 0 ]]; then
     git pull --all -p --rebase
   else
-    git branch | fzf | xargs -I_ git pull origin _ -p --rebase
+    git branch | fzf | awk '{ print $2 }' | xargs -I_ git pull origin _ -p --rebase
     # git pull origin "$1" --rebase
   fi
 }

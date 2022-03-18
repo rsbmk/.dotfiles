@@ -15,9 +15,9 @@
 [fetch]
 	prune = true
 
-[pager]
-	branch = false
-	log = true
+# [pager]
+# 	branch = false
+# 	log = true
 
 [color]
 	diff = auto
@@ -69,6 +69,6 @@
 	changed = green
 	untracked = cyan
 
-# [apply]
-# 	# Detect whitespace errors when applying a patch
-# 	whitespace = fix
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
