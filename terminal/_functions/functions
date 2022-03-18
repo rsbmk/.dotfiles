@@ -27,6 +27,20 @@ ga() {
   fi
 }
 
+# git push
+gpush() {
+  
+  SELETED_BRANCH=$(git branch | fzf)
+  COLUM1=$(echo "$SELETED_BRANCH" | awk '{ print $1 }')
+  COLUM2=$(echo "$SELETED_BRANCH"| awk '{ print $2 }')
+  
+  if [[ -n $COLUM2 ]]; then
+    git push origin "$COLUM2"
+  else
+    git push origin "$COLUM1"
+  fi
+}
+
 updateAll() {
   sudo apt update;
   sudo apt upgrade -y;
