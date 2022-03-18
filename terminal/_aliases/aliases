@@ -23,7 +23,7 @@ alias gl="git log --graph --abbrev-commit "
 alias gc="git commit -m $*"
 alias gca=" git commit --amend --no-edit"
 
-# alias gpsh="git branch | fzf | grep -rv '*' | xargs -I_ git push origin _ "
+alias grA="git restore ."  
 
 alias grb="git branch | fzf | xargs -I_ git rebase _"
 alias grbc="git rebase --continue"
