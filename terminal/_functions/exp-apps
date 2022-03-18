@@ -1,12 +1,12 @@
 #!/bin/env bash
 export_apps(){
   # APT
-  echo "Exportando apps..."
-  if [[ -a "$DOTFILES_PATH/os/apt-installed.txt" ]]; then
-    rm "$DOTFILES_PATH/os/apt-installed.txt"
-  fi
-  sudo apt list --installed 2> /dev/null > "$DOTFILES_PATH/os/apt-installed.txt"
-  echo "Apps exportadas!!"
+  # echo "Exportando apps..."
+  # if [[ -a "$DOTFILES_PATH/os/apt-installed.txt" ]]; then
+  #   rm "$DOTFILES_PATH/os/apt-installed.txt"
+  # fi
+  # sudo apt list --installed 2> /dev/null > "$DOTFILES_PATH/os/apt-installed.txt"
+  # echo "Apps exportadas!!"
 
   # VS Code
   echo "Exportando extenciones de vsCode..."
@@ -20,15 +20,15 @@ export_apps(){
 
 import_apps() {
   # APT 
-  echo "Importando apps..."
-  if [[ -a "$DOTFILES_PATH/os/apt-installed.txt" ]]; then
-    sudo apt install -y $(cat "$DOTFILES_PATH/os/apt-installed.txt" | grep -v "^\s*$" | grep -v "^\s*#" | cut -d " " -f 1)
-  fi
-  echo "Apps importadas!!"
+  # echo "Importando apps..."
+  # if [[ -a "$DOTFILES_PATH/os/apt-installed.txt" ]]; then
+  #   sudo apt install -y $(cat "$DOTFILES_PATH/os/apt-installed.txt" | grep -v "^\s*$" | grep -v "^\s*#" | cut -d " " -f 1)
+  # fi
+  # echo "Apps importadas!!"
 
   # VS Code
   echo "Importando extenciones de vsCode..."
   if [[ -a "$DOTFILES_PATH/os/vscode-extensions.txt" ]]; then
-    cat "$DOTFILES_PATH/os/vscode-extensions.txt" | xargs -L 1 code --install-extension
+     xargs -L 1 code --install-extension < "$DOTFILES_PATH/os/vscode-extensions.txt"
   fi
 }
