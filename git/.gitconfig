@@ -15,9 +15,9 @@
 [fetch]
 	prune = true
 
-# [pager]
-# 	branch = false
-# 	log = true
+[pager]
+	branch = false
+	log = true
 
 [color]
 	diff = auto
