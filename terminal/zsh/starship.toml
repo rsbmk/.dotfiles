@@ -6,8 +6,8 @@
 
 # cambia el caracter y los colores del del simbolo
 # [character]
-# success_symbol = "[{rsbmk} =>](bold green) "
-# error_symbol = "[{rsbmk} =>](bold red) "
+# success_symbol = "[ג](bold green) "
+# error_symbol = "[ג](bold red) "
 
 # esto es para cambia el prompot pone todo en una linea
 # pero el sombolo lo pone a la izq y el resto a la derecha

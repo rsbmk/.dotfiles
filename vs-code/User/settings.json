@@ -51,7 +51,6 @@
   "eslint.codeActionsOnSave.mode": "all",
   "editor.suggestSelection": "recentlyUsedByPrefix",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  // "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.tabs.title": "${process}",
   "terminal.integrated.tabs.description": "${task}${separator}${local}${separator}${cwdFolder}",
   "prettier.printWidth": 100,
@@ -72,5 +71,6 @@
   "shellcheck.enable": true,
   "shellcheck.enableQuickFix": true,
   "shellcheck.run": "onSave",
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.defaultProfile.linux": "bash"
 }

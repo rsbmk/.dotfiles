@@ -12,12 +12,9 @@ paths=(
   "$HOME/bin"
   "$DOTFILES_PATH/bin"
   "/bin"
-  # "/usr/local/bin" # This contains Brew ZSH. If it's below `/bin` it won't be executed.
+  "/usr/local/bin" # This contains Brew ZSH. If it's below `/bin` it won't be executed.
   # "/usr/local/opt/make/libexec/gnubin"
   "/usr/bin"
-  # "/usr/local/sbin"
-  # "/usr/sbin"
-  # "/sbin"
 )
 
 PATH=$(
