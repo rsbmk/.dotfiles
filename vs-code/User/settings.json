@@ -1,8 +1,8 @@
 {
-  "telemetry.telemetryLevel": "off",
-  // "window.titleBarStyle": "custom",
+  "telemetry.telemetryLevel": "all",
+  "window.titleBarStyle": "custom",
   "workbench.settings.editor": "json",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "One Dark Pro Darker",
   "oneDarkPro.bold": true,
   "oneDarkPro.italic": true,
   "oneDarkPro.vivid": false,
@@ -13,9 +13,9 @@
   "editor.autoIndent": "full",
   "editor.matchBrackets": "always",
   "editor.guides.bracketPairs": true,
-  "editor.bracketPairColorization.enabled": true,
-  "editor.fontFamily": "Cascadia Code, Consolas, 'Courier New', monospace",
-  "editor.fontLigatures": true,
+  "editor.bracketPairColorization.enabled": true, 
+  "editor.fontFamily": "CaskaydiaCove NF, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true, 
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "file",
@@ -72,5 +72,5 @@
   "shellcheck.enableQuickFix": true,
   "shellcheck.run": "onSave",
   "diffEditor.ignoreTrimWhitespace": false,
-  "terminal.integrated.defaultProfile.linux": "bash"
+  "terminal.integrated.defaultProfile.linux": "zsh"
 }

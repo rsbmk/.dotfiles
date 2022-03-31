@@ -7,6 +7,7 @@ export FZF_DEFAULT_OPTS='
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+# export ZIM_HOME="$HOME/.zim"
 
 paths=(
   "$HOME/bin"
