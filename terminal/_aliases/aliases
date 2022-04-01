@@ -1,7 +1,6 @@
 #!/bin/env bash
 alias la="ls -a"
 alias sudo="sudo"
-alias zshc="code ~/.zshrc ~/.scriptzsh/"
 alias dotfiles="cd ~/.dotfiles"
 
 # updates
