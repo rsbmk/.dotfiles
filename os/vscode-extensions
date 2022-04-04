@@ -1,5 +1,3 @@
-#!/bin/env bash 
-
 code --install-extension bradlc.vscode-tailwindcss
 code --install-extension christian-kohler.path-intellisense
 code --install-extension dbaeumer.vscode-eslint
@@ -7,9 +5,10 @@ code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension GitHub.copilot
-code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension heybourn.headwind
 code --install-extension pflannery.vscode-versionlens
 code --install-extension redhat.vscode-yaml
+code --install-extension sainoba.px-to-rem
 code --install-extension styled-components.vscode-styled-components
 code --install-extension timonwong.shellcheck
 code --install-extension usernamehw.errorlens
