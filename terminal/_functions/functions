@@ -29,7 +29,6 @@ ga() {
 
 # git push
 gpsh() {
-
   SELETED_BRANCH=$(git branch | fzf)
   COLUM1=$(echo "$SELETED_BRANCH" | awk '{ print $1 }')
   COLUM2=$(echo "$SELETED_BRANCH"| awk '{ print $2 }')
@@ -39,6 +38,10 @@ gpsh() {
   else
     git push origin "$COLUM1"
   fi
+}
+
+gd () {
+  git status --short | awk '{ print $2 }' | fzf --preview 'git diff --color=always {}' 
 }
 
 updateAll() {
@@ -52,7 +55,7 @@ updateAll() {
 }
 
 function cdd() {
-  cd "$(ls -d -- */ | fzf)" || echo "Invalid directory"
+  cd "$(ls -d -- */ | fzf --preview 'ls -a {}')" || echo "Invalid directory"
 }
 
 go_to_job() {

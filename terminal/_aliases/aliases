@@ -19,7 +19,7 @@ alias opd="open_dev"
 alias gs="git status"
 alias gl="git log --graph --abbrev-commit "
 
-alias gd="git diff"
+# alias gd="git diff"
 
 alias gc="git commit -m $*"
 alias gca=" git commit --amend --no-edit"
