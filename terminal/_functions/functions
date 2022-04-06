@@ -41,7 +41,7 @@ gpsh() {
 }
 
 gd () {
-  git status --short | awk '{ print $2 }' | fzf --preview 'git diff --color=always {}' 
+  git status --short | awk '{ print $2 }' | fzf --preview 'git diff --color=always {}' --preview-window right:80%
 }
 
 updateAll() {

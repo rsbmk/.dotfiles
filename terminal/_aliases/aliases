@@ -2,6 +2,7 @@
 alias la="ls -a"
 alias sudo="sudo"
 alias dotfiles="cd ~/.dotfiles"
+alias symlinks="$DOTFILES_PATH/symlinks/links.sh"
 
 # updates
 alias zimup="zimfw update && zimfw upgrade"
@@ -16,7 +17,7 @@ alias opj="open_job"
 alias opd="open_dev"
 
 # gits
-alias gs="git status"
+alias gs="git status --short"
 alias gl="git log --graph --abbrev-commit "
 
 # alias gd="git diff"
