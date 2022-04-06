@@ -40,3 +40,4 @@ Thumbs.db
 todo
 node_modules/
 dist/
+workspaceStorage/
