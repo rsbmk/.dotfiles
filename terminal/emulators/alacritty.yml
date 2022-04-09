@@ -400,7 +400,7 @@ key_bindings:
   # - { key: F12,      mods: Command, chars: "\x1b[24;3~"                  }
   - { key: S, mods: Control,       chars: "\x02\x25" }
   - { key: S, mods: Control|Shift, chars: "\x02\x22" }
-  - { key: C, mods: Control,       chars: "\x02\x63" }
+  # - { key: C, mods: Control,       chars: "\x02\x63" }
   # - { key: W,        mods: Alt,       chars: "\x06\x78" }
   # - { key: H,        mods: Alt,       chars: "\x06\x68" }
   # - { key: J,        mods: Alt,       chars: "\x06\x6a" }
