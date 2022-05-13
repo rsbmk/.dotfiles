@@ -72,5 +72,9 @@
   "shellcheck.enableQuickFix": true,
   "shellcheck.run": "onSave",
   "diffEditor.ignoreTrimWhitespace": false,
-  "terminal.integrated.defaultProfile.linux": "zsh"
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "deno.path": "$HOME/.deno/bin/deno",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
 }

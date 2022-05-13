@@ -18,3 +18,15 @@ function npm { lazy_nvm; npm "$@"; }
 function node { lazy_nvm; node "$@"; }
 function npx { lazy_nvm; npx "$@"; }
 function yarn { lazy_nvm; yarn "$@"; }
+
+
+function deno_lazy {
+  unset -f deno
+
+  if [ -d "${HOME}/.deno" ]; then
+    export DENO_INSTALL="$HOME/.deno"
+    export PATH="$DENO_INSTALL/bin:$PATH"
+  fi
+}
+
+function deno { deno_lazy; deno "$@"; }

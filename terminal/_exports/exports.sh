@@ -7,6 +7,10 @@ export FZF_DEFAULT_OPTS='
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+
+
+# export DENO_INSTALL="/home/rsbmk/.deno"
+# export PATH="$DENO_INSTALL/bin:$PATH"
 # export ZIM_HOME="$HOME/.zim"
 
 paths=(
@@ -16,6 +20,7 @@ paths=(
   "/usr/local/bin" # This contains Brew ZSH. If it's below `/bin` it won't be executed.
   # "/usr/local/opt/make/libexec/gnubin"
   "/usr/bin"
+  "$HOME/.deno"
 )
 
 PATH=$(
