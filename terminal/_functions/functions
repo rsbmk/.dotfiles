@@ -71,15 +71,15 @@ go_to_dev() {
 # open the proyect work in code and terminal
 open_job() {
   poryectName=$(ls ~/Code/job | fzf) 
-  cd ~/Code/job"/$poryectName" || exit
-  code ~/Code/job/"$poryectName"
+  cd "$HOME/Code/job/$poryectName" || exit
+  code "$HOME/Code/job/$poryectName"
 }
 
 # open the proyect work in code and terminal
 open_dev() {
-  poryectName=$(ls ~/Code/dev | fzf) 
-  cd ~/Code/dev/"$poryectName "|| exit
-  code ~/Code/dev/"$poryectName"
+  poryectNameDev=$(ls ~/Code/dev | fzf) 
+  cd "$HOME/Code/dev/$poryectNameDev" || exit
+  code "$HOME/Code/dev/$poryectNameDev"
 }
 
 # clone github repo
