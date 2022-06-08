@@ -131,9 +131,12 @@ unset key
 
 eval "$(starship init zsh)"
 source $HOME/.dotfiles/terminal/init.sh
-# bun completions
-[ -s "/home/rsbmk/.bun/_bun" ] && source "/home/rsbmk/.bun/_bun"
 
-# Bun
-export BUN_INSTALL="/home/rsbmk/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# fnm
+export PATH=/home/rsbmk/.fnm:$PATH
+eval "`fnm env`"
+
+# vs code for wsl
+export PATH=/mnt/c/Users/elpic/AppData/Local/Programs/Microsoft\ VS\ Code/bin/:$PATH
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
