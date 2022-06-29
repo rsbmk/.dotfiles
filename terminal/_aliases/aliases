@@ -41,6 +41,11 @@ alias gsts="git stash save"
 alias gsta="git stash apply"
 alias gstc="git stash clear"
 
+alias gbs="git bisect start"
+alias gbg="git bisect good"
+alias gbb="git bisect bad"
+alias gbr="git bisect reset"
+
 alias gswr="git branch -a | fzf | xargs -I_ git switch _"
 alias gswc="git switch -c $1"
 
