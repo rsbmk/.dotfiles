@@ -9,14 +9,13 @@ alias zimup="zimfw update && zimfw upgrade"
 alias up="sudo apt update"
 alias ug="sudo apt dist-upgrade -y"
 
-alias c="clear"
-
 alias gtj="go_to_job"
 alias gtd="go_to_dev"
 alias opj="open_job"
 alias opd="open_dev"
 
 # gits
+alias c="clear"
 alias gs="git status"
 alias gl="git log --graph --abbrev-commit "
 
