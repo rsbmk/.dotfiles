@@ -28,13 +28,13 @@
     "source.fixAll.eslint": true
   },
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnType": false
   },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnType": false
   },
@@ -54,6 +54,7 @@
   "terminal.integrated.tabs.title": "${process}",
   "terminal.integrated.tabs.description": "${task}${separator}${local}${separator}${cwdFolder}",
   "prettier.printWidth": 100,
+  "explorer.excludeGitIgnore": true, // exclude .gitignore files from the explorer
   // "vscode-edge-devtools.mirrorEdits": true,
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
@@ -68,13 +69,27 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "git.autofetch": true,
-  "shellcheck.enable": true,
-  "shellcheck.enableQuickFix": true,
-  "shellcheck.run": "onSave",
+  // "shellcheck.enable": true,
+  // "shellcheck.enableQuickFix": true,
+  // "shellcheck.run": "onSave",
   "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.defaultProfile.linux": "zsh",
-  "deno.path": "$HOME/.deno/bin/deno",
+  // "deno.path": "$HOME/.deno/bin/deno",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.activityBar.visible": false,
+  "workbench.statusBar.visible": false,
+  "breadcrumbs.enabled": false,
+  "window.menuBarVisibility": "hidden",
+  "window.title": " ",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "turboConsoleLog.logMessagePrefix": "",
+  "turboConsoleLog.insertEnclosingFunction": false,
+  "turboConsoleLog.insertEnclosingClass": false,
+  "turboConsoleLog.includeFileNameAndLineNum": false,
+  "turboConsoleLog.delimiterInsideMessage": ""
 }
