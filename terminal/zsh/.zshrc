@@ -130,13 +130,15 @@ unset key
 # }}} End configuration added by Zim install
 
 eval "$(starship init zsh)"
-source $HOME/.dotfiles/terminal/init.sh
+source ~/.dotfiles/terminal/init.sh
 
 # fnm
 export PATH=/home/rsbmk/.fnm:$PATH
-eval "`fnm env`"
+eval `fnm env`
 
 # vs code for wsl
-export PATH=/mnt/c/Users/elpic/AppData/Local/Programs/Microsoft\ VS\ Code/bin/:$PATH
+# export PATH=/mnt/c/Users/elpic/AppData/Local/Programs/Microsoft\ VS\ Code/bin/:$PATH
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

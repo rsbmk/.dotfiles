@@ -82,16 +82,16 @@ open_dev() {
   code "$HOME/Code/dev/$poryectNameDev"
 }
 
-# clone github repo
-clone_git_repo() {
-  local -r repo_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/user/repos?per_page=200" | jq --raw-output ".[].name" | fzf)
-  git clone "git@github.com:rsbmk/$repo_url.git"
-  echo "$repo_url"
-}
+# # clone github repo
+# clone_git_repo() {
+#   local -r repo_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/user/repos?per_page=200" | jq --raw-output ".[].name" | fzf)
+#   git clone "git@github.com:rsbmk/$repo_url.git"
+#   echo "$repo_url"
+# }
 
-# clone gitlab repo
-clone_gitlab_repo() {
-  local -r repo_url=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" "https://gitlab.com/api/v4/users/robertobocio/starred_projects" | jq --raw-output '.[].path' | fzf)
-  git clone "git@gitlab.com:devlab-ec/$repo_url.git"
-  echo "$repo_url"
-}
+# # clone gitlab repo
+# clone_gitlab_repo() {
+#   local -r repo_url=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" "https://gitlab.com/api/v4/users/robertobocio/starred_projects" | jq --raw-output '.[].path' | fzf)
+#   git clone "git@gitlab.com:devlab-ec/$repo_url.git"
+#   echo "$repo_url"
+# }
