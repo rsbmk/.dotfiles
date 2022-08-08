@@ -8,6 +8,11 @@ gsw() {
   fi
 }
 
+# git switch remote
+gswr () {
+  git branch -a | fzf | awk -F "/" '{print $NF}' | xargs -I_ git switch _
+}
+
 # git pull
 gp() {
   if [[ $# -eq 0 ]]; then

@@ -45,7 +45,6 @@ alias gbg="git bisect good"
 alias gbb="git bisect bad"
 alias gbr="git bisect reset"
 
-alias gswr="git branch -a | fzf | xargs -I_ git switch _"
 alias gswc="git switch -c $1"
 
 alias gr="git reset --soft HEAD~1"
