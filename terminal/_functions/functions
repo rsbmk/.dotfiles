@@ -49,15 +49,15 @@ gd () {
   git status --short | awk '{ print $2 }' | fzf --preview 'git diff --color=always {}' --preview-window right:80%
 }
 
-updateAll() {
-  sudo apt update;
-  sudo apt upgrade -y;
-  sudo apt dist-upgrade -y;
-  sudo apt full-upgrade -y;
-  sudo apt autoremove -y;
-  sudo apt autoclean -y;
-  zimup;
-}
+# updateAll() {
+#   sudo apt update;
+#   sudo apt upgrade -y;
+#   sudo apt dist-upgrade -y;
+#   sudo apt full-upgrade -y;
+#   sudo apt autoremove -y;
+#   sudo apt autoclean -y;
+#   zimup;
+# }
 
 function cdd() {
   cd "$(ls -d -- */ | fzf --preview 'ls -a {}')" || echo "Invalid directory"
@@ -85,6 +85,14 @@ open_dev() {
   poryectNameDev=$(ls ~/Code/dev | fzf) 
   cd "$HOME/Code/dev/$poryectNameDev" || exit
   code "$HOME/Code/dev/$poryectNameDev"
+}
+
+job() {
+  open --new -a "Brave Browser" --args "https://app.slack.com/client/TA12BB21H/CA15C9LKU"
+  open --new -a "Brave Browser" --args "https://app.clickup.com/"
+  open --new -a "Brave Browser" --args "https://mail.google.com/mail/u/2/#all"
+
+  open_job
 }
 
 # # clone github repo
