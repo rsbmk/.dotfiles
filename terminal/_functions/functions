@@ -45,6 +45,11 @@ gpsh() {
   fi
 }
 
+gpshc() {
+  SELETED_BRANCH=$(git branch --show-current)
+  git push origin "$SELETED_BRANCH"
+}
+
 gd () {
   git status --short | awk '{ print $2 }' | fzf --preview 'git diff --color=always {}' --preview-window right:80%
 }
