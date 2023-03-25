@@ -20,6 +20,7 @@ alias gs="git status"
 alias gl="git log --graph --abbrev-commit "
 
 alias gc="git commit -m $*"
+alias gmdc="npx miduco"
 alias gca=" git commit --amend --no-edit"
 
 alias grA="git restore ."  
