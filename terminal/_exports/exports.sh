@@ -21,7 +21,7 @@ paths=(
   # "/usr/local/opt/make/libexec/gnubin"
   "/usr/bin"
   "\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-  "$HOME/.deno"
+  "$HOME/.deno/bin/deno"
 )
 
 PATH=$(

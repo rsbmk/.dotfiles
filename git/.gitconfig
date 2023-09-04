@@ -72,3 +72,7 @@
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
