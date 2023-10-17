@@ -12,7 +12,6 @@ export LC_ALL="en_US.UTF-8"
 # export DENO_INSTALL="/home/rsbmk/.deno"
 # export PATH="$DENO_INSTALL/bin:$PATH"
 # export ZIM_HOME="$HOME/.zim"
-
 paths=(
   "$HOME/bin"
   "$DOTFILES_PATH/bin"
@@ -22,6 +21,8 @@ paths=(
   "/usr/bin"
   "\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   "$HOME/.deno/bin/deno"
+  "/usr/bin:/bin:/usr/sbin:/sbin"
+  "/usr/local/bin:/usr/local/sbin:$PATH"
 )
 
 PATH=$(
