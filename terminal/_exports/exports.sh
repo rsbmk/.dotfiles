@@ -17,9 +17,10 @@ paths=(
   "$DOTFILES_PATH/bin"
   "/bin"
   "/usr/local/bin" # This contains Brew ZSH. If it's below `/bin` it won't be executed.
+  "/Users/robertosamuelbociomelo/.fly/bin"
   # "/usr/local/opt/make/libexec/gnubin"
   "/usr/bin"
-  "\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+  "/usr/local/bin/Code"
   "$HOME/.deno/bin/deno"
   "/usr/bin:/bin:/usr/sbin:/sbin"
   "/usr/local/bin:/usr/local/sbin:$PATH"

@@ -131,7 +131,7 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 source ~/.dotfiles/terminal/init.sh
 
 # fnm
@@ -147,3 +147,10 @@ eval `fnm env`
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# fnm
+export PATH="/Users/robertosamuelbociomelo/Library/Application Support/fnm:$PATH"
+eval "`fnm env`"
+
+# Turso
+export PATH="/Users/robertosamuelbociomelo/.turso:$PATH"
