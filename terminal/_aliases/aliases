@@ -57,3 +57,7 @@ alias gbd="git branch | grep -v '\*' | fzf | xargs -I_ git branch -D _"
 # clone repos
 alias ghcl="clone_git_repo"
 alias glcl="clone_gitlab_repo"
+
+# install - uninstall dependencies
+alias installsub="find . -name 'package.json' -execdir npm install \;"
+alias uninstallsub="find . -name 'node_modules' -type d -prune -exec rm -rf {} +"

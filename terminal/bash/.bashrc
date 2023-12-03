@@ -116,13 +116,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# . "$HOME/.cargo/env"
-
-source ~/.dotfiles/terminal/init.sh
-eval "$(starship init bash)"
-
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

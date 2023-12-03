@@ -131,26 +131,16 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-# eval "$(starship init zsh)"
-source ~/.dotfiles/terminal/init.sh
-
-# fnm
-export PATH=/home/rsbmk/.fnm:$PATH
-eval `fnm env`
-
-# vs code for wsl
-# export PATH=/mnt/c/Users/elpic/AppData/Local/Programs/Microsoft\ VS\ Code/bin/:$PATH
-
-# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.dotfiles/terminal/init.sh
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
 
 # fnm
-export PATH="/Users/robertosamuelbociomelo/Library/Application Support/fnm:$PATH"
+# export PATH="/Users/robertosamuelbociomelo/Library/Application Support/fnm:$PATH"
 eval "`fnm env`"
 
 # Turso
-export PATH="/Users/robertosamuelbociomelo/.turso:$PATH"
+# export PATH="/Users/robertosamuelbociomelo/.turso:$PATH"

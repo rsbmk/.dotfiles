@@ -18,11 +18,12 @@ paths=(
   "/bin"
   "/usr/local/bin" # This contains Brew ZSH. If it's below `/bin` it won't be executed.
   "/Users/robertosamuelbociomelo/.fly/bin"
-  # "/usr/local/opt/make/libexec/gnubin"
   "/usr/bin"
   "/usr/local/bin/Code"
-  "$HOME/.deno/bin/deno"
+  "/Users/robertosamuelbociomelo/.deno/bin"
   "/usr/bin:/bin:/usr/sbin:/sbin"
+  "/Users/robertosamuelbociomelo/.turso"
+  "/Users/robertosamuelbociomelo/Library/Application Support/fnm"
   "/usr/local/bin:/usr/local/sbin:$PATH"
 )
 
