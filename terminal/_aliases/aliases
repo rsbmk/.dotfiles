@@ -17,6 +17,7 @@ alias opd="open_dev"
 # gits
 alias c="clear"
 alias gs="git status"
+alias gaa="git add -A"
 alias gl="git log --graph --abbrev-commit "
 
 alias gc="git commit -m $*"
@@ -24,7 +25,7 @@ alias gce="git commit --allow-empty -m $*"
 alias gmdc="npx miduco"
 alias gca=" git commit --amend --no-edit"
 
-alias grA="git restore ."  
+alias grA="git restore ."
 
 alias grb="git branch | fzf | xargs -I_ git rebase _"
 alias grbc="git rebase --continue"

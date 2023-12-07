@@ -9,7 +9,7 @@ gsw() {
 }
 
 # git switch remote
-gswr () {
+gswr() {
   git branch -a | fzf | awk -F "/" '{print $NF}' | xargs -I_ git switch _
 }
 
@@ -19,38 +19,26 @@ gp() {
     git pull --all -p --rebase
   else
     git branch | fzf | awk '{ print $2 }' | xargs -I_ git pull origin _ -p --rebase
-    # git pull origin "$1" --rebase
   fi
 }
 
-# git add 
 ga() {
-  if [[ $# -eq 0 ]]; then
-    git add -A
-  else
-    git add "$*"
-  fi
+  local files=$(git status --porcelain | awk '{print $2}' | fzf -m)
+  echo "$files" | xargs git add
 }
 
 # git push
 gpsh() {
-  SELETED_BRANCH=$(git branch | fzf)
-  COLUM1=$(echo "$SELETED_BRANCH" | awk '{ print $1 }')
-  COLUM2=$(echo "$SELETED_BRANCH"| awk '{ print $2 }')
-
-  if [[ -n $COLUM2 ]]; then
-    git push origin "$COLUM2"
-  else
-    git push origin "$COLUM1"
-  fi
+  local selected_branch=$(git branch | fzf | sed 's/^[* ]*//')
+  git push origin "$selected_branch"
 }
 
 gpshc() {
-  SELETED_BRANCH=$(git branch --show-current)
-  git push origin "$SELETED_BRANCH"
+  local selected_branch=$(git branch --show-current)
+  git push origin "$selected_branch"
 }
 
-gd () {
+gd() {
   git status --short | awk '{ print $2 }' | fzf --preview 'git diff --color=always {}' --preview-window right:80%
 }
 
@@ -69,37 +57,99 @@ function cdd() {
 }
 
 go_to_job() {
-  proyect=$(ls ~/Code/job/ | fzf)
+  local proyect=$(ls ~/Code/job/ | fzf)
   cd ~/Code/job/"$proyect" || exit
 }
 
 go_to_dev() {
-  proyect=$(ls ~/Code/dev/ | fzf)
+  local proyect=$(ls ~/Code/dev/ | fzf)
   cd ~/Code/dev/"$proyect" || exit
 }
 
 # open the proyect work in code and terminal
 open_job() {
-  poryectName=$(ls ~/Code/job | fzf) 
+  local poryectName=$(ls ~/Code/job | fzf)
   cd "$HOME/Code/job/$poryectName" || exit
   code "$HOME/Code/job/$poryectName"
 }
 
 # open the proyect work in code and terminal
 open_dev() {
-  poryectNameDev=$(ls ~/Code/dev | fzf) 
+  local poryectNameDev=$(ls ~/Code/dev | fzf)
   cd "$HOME/Code/dev/$poryectNameDev" || exit
   code "$HOME/Code/dev/$poryectNameDev"
 }
 
 job() {
-  open --new -a "Brave Browser" --args "https://app.slack.com/client/TA12BB21H/CA15C9LKU"
-  open --new -a "Brave Browser" --args "https://app.clickup.com/"
-  open --new -a "Brave Browser" --args "https://mail.google.com/mail/u/2/#all"
+  open --new -a "Google Chrome" --args "https://app.slack.com/client/TA12BB21H/CA15C9LKU"
+  open --new -a "Google Chrome" --args "https://app.clickup.com/"
+  open --new -a "Google Chrome" --args "https://mail.google.com/mail/u/2/#all"
 
   open_job
 }
 
+# exec docker container
+dexec() {
+  # List all running containers and let the user select one
+  local container=$(docker ps --format '{{.Names}}' | fzf)
+
+  # If a container was selected, exec into it
+  if [[ -n "$container" ]]; then
+    docker exec -it "$container" sh
+  else
+    echo "No container selected."
+  fi
+}
+
+# run docker container
+drun() {
+  # List all stopped containers and let the user select one
+  local container=$(docker ps -a --filter 'status=exited' --format '{{.Names}}' | fzf)
+
+  # If a container was selected, start it
+  if [[ -n "$container" ]]; then
+    docker start "$container"
+  else
+    echo "No container selected."
+  fi
+}
+
+# stop docker container
+dstop() {
+  # List all running containers and let the user select one
+  local container=$(docker ps --format '{{.Names}}' | fzf)
+
+  # If a container was selected, stop it
+  if [[ -n "$container" ]]; then
+    docker stop "$container"
+  else
+    echo "No container selected."
+  fi
+}
+
+dcup() {
+  local container_status="exited" # change this to the status you want to filter by
+  local containers=$(docker-compose ls -a | grep $container_status | fzf)
+
+  if [[ -n "$containers" ]]; then
+    local config_file=$(echo "$containers" | awk '{print $3}')
+    docker-compose -f $config_file up -d
+  else
+    echo "No container selected."
+  fi
+}
+
+dcstop() {
+  # local container_status="running" # change this to the status you want to filter by
+  local containers=$(docker-compose ls | fzf)
+
+  if [[ -n "$containers" ]]; then
+    local config_file=$(echo "$containers" | awk '{print $3}')
+    docker-compose -f $config_file stop
+  else
+    echo "No container selected."
+  fi
+}
 # # clone github repo
 # clone_git_repo() {
 #   local -r repo_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/user/repos?per_page=200" | jq --raw-output ".[].name" | fzf)
