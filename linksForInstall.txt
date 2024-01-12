@@ -1,2 +1,2 @@
-how to install zsh in git bash
+Installing Zsh (and oh-my-zsh) in Windows Git Bash
 https://dominikrys.com/posts/zsh-in-git-bash-on-windows/
