@@ -140,16 +140,15 @@ dcup() {
 }
 
 dcstop() {
-  # local container_status="running" # change this to the status you want to filter by
-  local containers=$(docker-compose ls | fzf)
+  local containers=$(docker-compose ls | fzf -m)
 
   if [[ -n "$containers" ]]; then
-    local config_file=$(echo "$containers" | awk '{print $3}')
-    docker-compose -f $config_file stop
+    echo "$containers" | awk '{print $3}' | xargs -I_ docker-compose -f _ stop
   else
     echo "No container selected."
   fi
 }
+
 # # clone github repo
 # clone_git_repo() {
 #   local -r repo_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/user/repos?per_page=200" | jq --raw-output ".[].name" | fzf)
