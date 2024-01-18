@@ -129,11 +129,10 @@ dstop() {
 
 dcup() {
   local container_status="exited" # change this to the status you want to filter by
-  local containers=$(docker-compose ls -a | grep $container_status | fzf)
+  local containers=$(docker-compose ls -a | grep $container_status | fzf -m)
 
   if [[ -n "$containers" ]]; then
-    local config_file=$(echo "$containers" | awk '{print $3}')
-    docker-compose -f $config_file up -d
+    echo "$containers" | awk '{print $3}' | xargs -I_ docker-compose -f _ up -d
   else
     echo "No container selected."
   fi
