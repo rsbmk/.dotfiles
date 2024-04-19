@@ -66,3 +66,6 @@ alias uninstalldep="rm -rf node_modules yarn.lock package-lock.json dist yarn-er
 
 # docker
 alias dcu="docker-compose up -d"
+
+# php
+alias pa="php artisan"
