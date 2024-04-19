@@ -16,9 +16,9 @@ gswr() {
 # git pull
 gp() {
   if [[ $# -eq 0 ]]; then
-    git pull --all -p --rebase
+    git pull --all -p
   else
-    git branch | fzf | awk '{ print $2 }' | xargs -I_ git pull origin _ -p --rebase
+    git branch | fzf | awk '{ print $2 }' | xargs -I_ git pull origin _ -p
   fi
 }
 
