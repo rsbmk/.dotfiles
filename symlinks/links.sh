@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 rm -rf ~/.config/alacritty/alacritty.yml ~/.config/Code/User ~/.gitignore_global ~/.gitconfig ~/.config/starship.toml ~/.zshenv ~/.zshrc ~/.zimrc ~/.bashrc ~/.gitattributes ~/.ssh/config
 # ~/.ssh
 ln -s "$HOME/.dotfiles/terminal/bash/.bashrc" "$HOME/.bashrc"
