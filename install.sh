@@ -6,16 +6,6 @@ INIT_SCRIPT="terminal/init.sh"
 CLONE_DIR="$HOME/.dotfiles"
 SCRIPT_URL="https://raw.githubusercontent.com/rsbmk/.dotfiles/master/install_dotfiles.sh"
 
-# Check if wget or curl is installed
-if ! command -v curl &>/dev/null; then
-  apt install curl -y
-fi
-
-# Check if git is installed
-if ! command -v git &>/dev/null; then
-  apt install git -y
-fi
-
 # Generate locale if needed
 if ! locale -a | grep -q "en_US.utf8"; then
   echo "Generating en_US.UTF-8 locale..."
