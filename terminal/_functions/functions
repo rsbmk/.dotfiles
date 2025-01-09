@@ -22,11 +22,6 @@ gp() {
   fi
 }
 
-ga() {
-  local files=$(git status --porcelain | awk '{print $2}' | fzf -m)
-  echo "$files" | xargs git add
-}
-
 # git push
 gpsh() {
   local selected_branch=$(git branch | fzf | sed 's/^[* ]*//')
@@ -38,8 +33,33 @@ gpshc() {
   git push origin "$selected_branch"
 }
 
-gd() {
-  git status --short | awk '{ print $2 }' | fzf --preview 'git diff --color=always {}' --preview-window right:80%
+function gda() {
+  local files=($(git status --porcelain=v1 | awk '{print $2}'))
+  if [ ${#files[@]} -eq 0 ]; then
+    echo "No files in working tree, staged, or untracked."
+    return
+  fi
+
+  local selected_files=($(
+    printf "%s\n" "${files[@]}" | fzf -m \
+      --preview "if git diff --name-only --cached | grep -q {} ; then \
+                git diff --cached {} | diff-so-fancy; \
+            elif git ls-files --others --exclude-standard | grep -q {} ; then \
+                cat {} | diff-so-fancy; \
+            else \
+                git diff {} | diff-so-fancy; fi" \
+      --height 100% \
+      --preview-window right:80% \
+      --border \
+      --prompt="Select files: "
+  ))
+
+  if [ ${#selected_files[@]} -eq 0 ]; then
+    echo "No files selected."
+    return
+  fi
+
+  git add "${selected_files[@]}"
 }
 
 # updateAll() {
