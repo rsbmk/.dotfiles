@@ -62,16 +62,6 @@ function gda() {
   git add "${selected_files[@]}"
 }
 
-# updateAll() {
-#   sudo apt update;
-#   sudo apt upgrade -y;
-#   sudo apt dist-upgrade -y;
-#   sudo apt full-upgrade -y;
-#   sudo apt autoremove -y;
-#   sudo apt autoclean -y;
-#   zimup;
-# }
-
 function cdd() {
   cd "$(ls -d -- */ | fzf --preview 'ls -a {}')" || echo "Invalid directory"
 }
@@ -84,28 +74,6 @@ go_to_job() {
 go_to_dev() {
   local proyect=$(ls ~/Code/dev/ | fzf)
   cd ~/Code/dev/"$proyect" || exit
-}
-
-# open the proyect work in code and terminal
-open_job() {
-  local poryectName=$(ls ~/Code/job | fzf)
-  cd "$HOME/Code/job/$poryectName" || exit
-  code "$HOME/Code/job/$poryectName"
-}
-
-# open the proyect work in code and terminal
-open_dev() {
-  local poryectNameDev=$(ls ~/Code/dev | fzf)
-  cd "$HOME/Code/dev/$poryectNameDev" || exit
-  code "$HOME/Code/dev/$poryectNameDev"
-}
-
-job() {
-  open --new -a "Google Chrome" --args "https://app.slack.com/client/TA12BB21H/CA15C9LKU"
-  open --new -a "Google Chrome" --args "https://app.clickup.com/"
-  open --new -a "Google Chrome" --args "https://mail.google.com/mail/u/2/#all"
-
-  open_job
 }
 
 # exec docker container
@@ -168,16 +136,31 @@ dcstop() {
   fi
 }
 
-# # clone github repo
-# clone_git_repo() {
-#   local -r repo_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/user/repos?per_page=200" | jq --raw-output ".[].name" | fzf)
-#   git clone "git@github.com:rsbmk/$repo_url.git"
-#   echo "$repo_url"
-# }
+# delete multiple git branches
+gbdd() {
+  local selected_branches=($(
+    git branch | 
+    grep -v '\*' | 
+    fzf -m --height 40% --reverse --border \
+        --prompt="Select branches to delete: "
+  ))
 
-# # clone gitlab repo
-# clone_gitlab_repo() {
-#   local -r repo_url=$(curl -s -H "PRIVATE-TOKEN: $GITLAB_TOKEN" "https://gitlab.com/api/v4/users/robertobocio/starred_projects" | jq --raw-output '.[].path' | fzf)
-#   git clone "git@gitlab.com:devlab-ec/$repo_url.git"
-#   echo "$repo_url"
-# }
+  if [ ${#selected_branches[@]} -eq 0 ]; then
+    echo "No branches selected."
+    return
+  fi
+
+  echo "The following branches will be deleted:"
+  printf "  %s\n" "${selected_branches[@]}"
+  echo -n "Are you sure you want to delete these branches? [y/N] "
+  read -r confirm
+  
+  if [[ "$confirm" =~ ^[Yy]$ ]]; then
+    for branch in "${selected_branches[@]}"; do
+      git branch -D "$(echo "$branch" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+    done
+    echo "Selected branches deleted successfully."
+  else
+    echo "Operation cancelled."
+  fi
+}
