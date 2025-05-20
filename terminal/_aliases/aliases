@@ -53,7 +53,8 @@ alias gr="git reset --soft HEAD~1"
 
 alias gf="git fetch --all -p"
 
-alias gbd="git branch | grep -v '\*' | fzf | xargs -I_ git branch -D _"
+# alias gbd="git branch | grep -v '\*' | fzf | xargs -I_ git branch -D _"
+alias gbd="gbdd"
 
 # clone repos
 alias ghcl="clone_git_repo"
