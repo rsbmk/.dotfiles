@@ -4,19 +4,33 @@ Host github.com
    HostName github.com
    User git
    IdentityFile ~/.ssh/work.pub
-   IdentitiesOnly yes
-   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+   # IdentitiesOnly yes
+   # IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
    
 # Dev account
 Host github-dev
    HostName github.com
    User git
    IdentityFile ~/.ssh/dev.pub
-   IdentitiesOnly yes
-   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+   # IdentitiesOnly yes
+   # IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # Job gitlab
 Host gitlab.com
    HostName gitlab.com
    IdentityFile ~/.ssh/gitlab
    IdentitiesOnly yes
+
+# Intelnexo
+Host dialer
+   HostName app.intelnexo.com
+   User ubuntu
+   Port 22
+   IdentityFile ~/.ssh/intelnexodev.pem
+
+# LipSync
+Host lipsync
+   HostName ec2-52-40-64-194.us-west-2.compute.amazonaws.com
+   User ubuntu
+   Port 22
+   IdentityFile ~/.ssh/lipsync.pem
