@@ -3,17 +3,15 @@ Include ~/.orbstack/ssh/config
 Host github.com
    HostName github.com
    User git
-   IdentityFile ~/.ssh/work.pub
-   # IdentitiesOnly yes
-   # IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+   IdentityFile ~/.ssh/work
+   IdentitiesOnly yes
    
 # Dev account
 Host github-dev
    HostName github.com
    User git
-   IdentityFile ~/.ssh/dev.pub
-   # IdentitiesOnly yes
-   # IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+   IdentityFile ~/.ssh/dev
+   IdentitiesOnly yes
 
 # Job gitlab
 Host gitlab.com
