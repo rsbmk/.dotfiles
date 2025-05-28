@@ -9,11 +9,6 @@ alias zimup="zimfw update && zimfw upgrade"
 alias up="sudo apt update"
 alias ug="sudo apt dist-upgrade -y"
 
-alias gtj="go_to_job"
-alias gtd="go_to_dev"
-alias opj="open_job"
-alias opd="open_dev"
-
 # gits
 alias c="clear"
 alias gs="git status"
@@ -54,11 +49,6 @@ alias gr="git reset --soft HEAD~1"
 alias gf="git fetch --all -p"
 
 # alias gbd="git branch | grep -v '\*' | fzf | xargs -I_ git branch -D _"
-alias gbd="gbdd"
-
-# clone repos
-alias ghcl="clone_git_repo"
-alias glcl="clone_gitlab_repo"
 
 # install - uninstall dependencies
 alias installsub="find . -name 'package.json' -execdir npm install \;"

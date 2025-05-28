@@ -33,7 +33,7 @@ gpshc() {
   git push origin "$selected_branch"
 }
 
-function gda() {
+gda() {
   local files=($(git status --porcelain=v1 | awk '{print $2}'))
   if [ ${#files[@]} -eq 0 ]; then
     echo "No files in working tree, staged, or untracked."
@@ -62,16 +62,21 @@ function gda() {
   git add "${selected_files[@]}"
 }
 
-function cdd() {
+cdd() {
   cd "$(ls -d -- */ | fzf --preview 'ls -a {}')" || echo "Invalid directory"
 }
 
-go_to_job() {
-  local proyect=$(ls ~/Code/job/ | fzf)
-  cd ~/Code/job/"$proyect" || exit
+jl() {
+  local proyect=$(ls ~/Code/jelou/ | fzf)
+  cd ~/Code/jelou/"$proyect" || exit
 }
 
-go_to_dev() {
+inl() {
+  local proyect=$(ls ~/Code/intelnexo/ | fzf)
+  cd ~/Code/intelnexo/"$proyect" || exit
+}
+
+dev() {
   local proyect=$(ls ~/Code/dev/ | fzf)
   cd ~/Code/dev/"$proyect" || exit
 }
@@ -137,7 +142,7 @@ dcstop() {
 }
 
 # delete multiple git branches
-gbdd() {
+gbd() {
   local selected_branches=($(
     git branch | 
     grep -v '\*' | 
