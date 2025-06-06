@@ -81,6 +81,11 @@ dev() {
   cd ~/Code/dev/"$proyect" || exit
 }
 
+ph() {
+  local proyect=$(ls ~/Code/ph/ | fzf)
+  cd ~/Code/ph/"$proyect" || exit
+}
+
 # exec docker container
 dexec() {
   # List all running containers and let the user select one
