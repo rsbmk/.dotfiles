@@ -71,6 +71,11 @@ jl() {
   cd ~/Code/jelou/"$proyect" || exit
 }
 
+mc() {
+  local proyect=$(ls ~/Code/mc/ | fzf)
+  cd ~/Code/mc/"$proyect" || exit
+}
+
 inl() {
   local proyect=$(ls ~/Code/intelnexo/ | fzf)
   cd ~/Code/intelnexo/"$proyect" || exit
