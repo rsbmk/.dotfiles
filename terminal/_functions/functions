@@ -10,7 +10,7 @@ gsw() {
 
 # git switch remote
 gswr() {
-  git branch -a | fzf | awk -F "/" '{print $NF}' | xargs -I_ git switch _
+  git branch -a | grep "remotes/origin/" | fzf | sed 's|remotes/origin/||' | xargs -I_ git switch _
 }
 
 # git pull
@@ -148,6 +148,30 @@ dcstop() {
     echo "$containers" | awk '{print $3}' | xargs -I_ docker-compose -f _ stop
   else
     echo "No container selected."
+  fi
+}
+
+# docker-compose up with file selection
+dcu() {
+  # Find all docker-compose files in current directory
+  local compose_files=($(find . -maxdepth 1 -name "*compose*.yml" -o -name "*compose*.yaml" -o -name "docker-compose.yml" -o -name "docker-compose.yaml" | sort))
+  
+  if [ ${#compose_files[@]} -eq 0 ]; then
+    echo "No docker-compose files found in current directory."
+    return 1
+  elif [ ${#compose_files[@]} -eq 1 ]; then
+    echo "Using: ${compose_files[0]}"
+    docker-compose -f "${compose_files[0]}" up -d
+  else
+    echo "Multiple docker-compose files found:"
+    local selected_file=$(printf "%s\n" "${compose_files[@]}" | fzf --prompt="Select docker-compose file: ")
+    
+    if [[ -n "$selected_file" ]]; then
+      echo "Using: $selected_file"
+      docker-compose -f "$selected_file" up -d
+    else
+      echo "No file selected."
+    fi
   fi
 }
 

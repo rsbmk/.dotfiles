@@ -56,7 +56,6 @@ alias uninstallsub="find . -name 'node_modules' -type d -prune -exec rm -rf {} +
 alias uninstalldep="rm -rf node_modules yarn.lock package-lock.json dist yarn-error.log"
 
 # docker
-alias dcu="docker-compose up -d"
 
 # php
 alias pa="php artisan"
