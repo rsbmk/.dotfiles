@@ -144,3 +144,4 @@ eval "`fnm env`"
 
 # Turso
 # export PATH="/Users/robertosamuelbociomelo/.turso:$PATH"
+source /opt/homebrew/opt/spaceship/spaceship.zsh
