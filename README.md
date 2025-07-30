@@ -201,8 +201,6 @@ gstc        # git stash clear
 
 ```bash
 # Navegación de código
-jl          # Cambiar a proyecto Jelou
-mc          # Cambiar a proyecto MC
 dev         # Cambiar a proyecto Dev
 cdd         # Cambiar directorio (interactivo)
 
