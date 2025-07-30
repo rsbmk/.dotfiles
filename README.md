@@ -27,92 +27,142 @@ Una configuración completa y personalizada para el entorno de desarrollo en mac
 
 ```
 .dotfiles/
-├── git/                    # Configuraciones de Git
-│   ├── .gitconfig         # Configuración principal de Git
-│   ├── .gitignore_global  # Reglas globales de ignore
-│   └── .gitattributes     # Atributos de archivos
-├── terminal/              # Configuraciones de terminal
-│   ├── _aliases/          # Aliases personalizados
-│   │   └── aliases        # 60+ aliases para Git, Docker, etc.
-│   ├── _exports/          # Variables de entorno
-│   │   └── exports.sh     # PATH y configuraciones FZF
-│   ├── _functions/        # Funciones bash/zsh
-│   │   └── functions      # Funciones interactivas con FZF
-│   ├── bash/             # Configuraciones de Bash
-│   │   └── .bashrc       # Configuración principal de Bash
-│   ├── zsh/              # Configuraciones de Zsh
-│   │   ├── .zshrc        # Configuración principal de Zsh
-│   │   └── .zimrc        # Configuración del framework Zim
-│   ├── config            # Configuración SSH
-│   └── init.sh           # Script de inicialización
-└── symlinks/             # Sistema de enlaces simbólicos
-    └── links.sh          # Script automatizado de enlaces
+├── install.sh            # 🚀 Script de instalación automática
+├── README.md             # 📖 Documentación completa
+├── git/                  # Configuraciones de Git
+│   ├── .gitconfig       # Configuración principal de Git
+│   ├── .gitignore_global # Reglas globales de ignore
+│   └── .gitattributes   # Atributos de archivos
+├── terminal/            # Configuraciones de terminal
+│   ├── _aliases/        # Aliases personalizados
+│   │   └── aliases      # 60+ aliases para Git, Docker, etc.
+│   ├── _exports/        # Variables de entorno
+│   │   └── exports.sh   # PATH y configuraciones FZF
+│   ├── _functions/      # Funciones bash/zsh
+│   │   └── functions    # Funciones interactivas con FZF
+│   ├── bash/           # Configuraciones de Bash
+│   │   └── .bashrc     # Configuración principal de Bash
+│   ├── zsh/            # Configuraciones de Zsh
+│   │   ├── .zshrc      # Configuración principal de Zsh
+│   │   └── .zimrc      # Configuración del framework Zim
+│   ├── config          # Configuración SSH
+│   └── init.sh         # Script de inicialización
+└── symlinks/           # Sistema de enlaces simbólicos
+    └── links.sh        # Script automatizado de enlaces
 ```
 
 ## 🛠️ Instalación
 
-### Prerequisitos
+### 🚀 Instalación Automática (Recomendada)
 
-Antes de instalar, asegúrate de tener instalado:
+**¡Solo necesitas 2 comandos para tener todo configurado!**
+
+```bash
+# 1. Clonar el repositorio
+cd ~ && git clone https://github.com/robertobocio/dotfiles.git .dotfiles && cd .dotfiles
+
+# 2. Ejecutar instalación automática
+./install.sh
+```
+
+**¡Eso es todo!** El script instalará automáticamente:
+- ✅ Homebrew (si no está instalado)
+- ✅ Todas las herramientas necesarias (git, fzf, diff-so-fancy, etc.)
+- ✅ Zsh y Zim framework
+- ✅ Spaceship prompt
+- ✅ Node.js con FNM
+- ✅ VS Code y iTerm2
+- ✅ Enlaces simbólicos de configuración
+- ✅ Configuración optimizada
+
+### 📋 Instalación Manual (Paso a Paso)
+
+Si prefieres instalar manualmente o quieres entender el proceso:
+
+<details>
+<summary>👆 Click para expandir instrucciones manuales</summary>
+
+#### Prerequisitos
 
 ```bash
 # Instalar Homebrew (si no lo tienes)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Instalar herramientas esenciales
-brew install git curl wget
-brew install fzf diff-so-fancy
-brew install fnm  # Node Version Manager (opcional)
+brew install git curl wget fzf diff-so-fancy fnm exa bat ripgrep git-delta
 ```
 
-### Paso a Paso
+#### Pasos Manuales
 
-1. **Clonar el repositorio en tu directorio home:**
+1. **Clonar el repositorio:**
    ```bash
    cd ~
    git clone https://github.com/robertobocio/dotfiles.git .dotfiles
    cd .dotfiles
    ```
 
-2. **Hacer el script ejecutable:**
+2. **Crear enlaces simbólicos:**
    ```bash
    chmod +x symlinks/links.sh
-   ```
-
-3. **Validar archivos antes de la instalación (opcional):**
-   ```bash
-   ./symlinks/links.sh --validate
-   ```
-
-4. **Crear enlaces simbólicos:**
-   ```bash
    ./symlinks/links.sh
    ```
 
-5. **Instalar Zim framework (para Zsh):**
+3. **Instalar Zim framework:**
    ```bash
-   # Si usas Zsh, instalar Zim
    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
    ```
 
-6. **Reiniciar tu terminal o recargar configuración:**
+4. **Configurar FZF:**
    ```bash
-   # Para Zsh
-   source ~/.zshrc
-   
-   # Para Bash
-   source ~/.bashrc
-   ```
-
-7. **Configurar FZF (opcional pero recomendado):**
-   ```bash
-   # Instalar FZF keybindings
    $(brew --prefix)/opt/fzf/install
    ```
 
+5. **Recargar configuración:**
+   ```bash
+   source ~/.zshrc
+   ```
+
+</details>
+
+## 🤖 Script de Instalación Automática
+
+El script `install.sh` es el punto de entrada principal que automatiza toda la configuración:
+
+### Características del Script
+
+- 🔍 **Detección inteligente**: Verifica qué herramientas ya están instaladas
+- 🛡️ **Instalación segura**: No sobrescribe configuraciones existentes sin backup
+- 🎨 **Output visual**: Mensajes coloridos y emojis para seguimiento claro
+- ⚡ **Optimizado**: Solo instala lo que falta, actualiza lo existente
+- 🔧 **Configurable**: Opciones para diferentes modos de instalación
+
+### Opciones del Script
+
+```bash
+# Instalación normal (interactiva)
+./install.sh
+
+# Mostrar ayuda
+./install.sh --help
+
+# Modo automático (sin confirmaciones)
+./install.sh --yes
+```
+
+### Lo que Instala el Script
+
+| Categoría | Herramientas |
+|-----------|-------------|
+| **Package Manager** | Homebrew |
+| **Shell & Framework** | Zsh, Zim, Spaceship Prompt |
+| **Desarrollo** | Git, diff-so-fancy, git-delta, VS Code |
+| **Terminal** | iTerm2, FZF, exa, bat, ripgrep |
+| **Node.js** | FNM (Fast Node Manager) + LTS |
+| **Utilidades** | jq, tree, curl, wget |
+
 ## 🔧 Uso del Script de Enlaces
 
-El script `symlinks/links.sh` es la herramienta principal para gestionar los enlaces simbólicos:
+El script `symlinks/links.sh` gestiona los enlaces simbólicos (se ejecuta automáticamente con `install.sh`):
 
 ### Comandos Disponibles
 
