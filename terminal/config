@@ -1,24 +1,12 @@
 Include ~/.orbstack/ssh/config
-# Job account
+
+# Github
 Host github.com
-   HostName github.com
-   User git
-   IdentityFile ~/.ssh/work
-   IdentitiesOnly yes
-   
-# Dev account
-Host github-dev
    HostName github.com
    User git
    IdentityFile ~/.ssh/dev
    IdentitiesOnly yes
-
-# Job gitlab
-Host gitlab.com
-   HostName gitlab.com
-   IdentityFile ~/.ssh/gitlab
-   IdentitiesOnly yes
-
+   
 # Intelnexo
 Host dialer
    HostName app.intelnexo.com
@@ -26,9 +14,28 @@ Host dialer
    Port 22
    IdentityFile ~/.ssh/intelnexodev.pem
 
-# LipSync
-Host lipsync
-   HostName ec2-52-40-64-194.us-west-2.compute.amazonaws.com
-   User ubuntu
-   Port 22
-   IdentityFile ~/.ssh/lipsync.pem
+# Mercately
+Host mercately-bastion-mia
+    HostName 34.71.130.165
+    User mercately
+    Port 9443
+    IdentityFile ~/.ssh/dev
+    ServerAliveInterval 60
+
+Host mongodb-mia-staging
+    HostName 138.197.13.54
+    User mercately
+    Port 9443
+    IdentityFile ~/.ssh/dev
+    ProxyJump mercately-bastion-mia
+    LocalForward 127.0.0.1:27036 127.0.0.1:27017
+    SetEnv TERM=xterm-256color
+
+Host mongodb-mia-prod
+    HostName 10.120.1.49
+    User mercately
+    Port 22
+    IdentityFile ~/.ssh/dev
+    ProxyJump mercately-bastion-mia
+    LocalForward 127.0.0.1:27035 127.0.0.1:27017
+    SetEnv TERM=xterm-256color
