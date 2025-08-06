@@ -13,6 +13,7 @@ Host dialer
    User ubuntu
    Port 22
    IdentityFile ~/.ssh/intelnexodev.pem
+   SetEnv TERM=xterm-256color
 
 # Mercately
 Host mercately-bastion-mia
