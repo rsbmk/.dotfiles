@@ -76,7 +76,7 @@ install_essential_tools() {
         "fzf"
         "diff-so-fancy"
         "fnm"
-        "exa"
+        # "exa"
         "bat"
         "ripgrep"
         "git-delta"
@@ -94,21 +94,21 @@ install_essential_tools() {
     done
     
     # Instalar aplicaciones con cask
-    print_status "step" "Instalando aplicaciones..."
+    # print_status "step" "Instalando aplicaciones..."
     
-    local cask_apps=(
-        "visual-studio-code"
-        "iterm2"
-    )
+    # local cask_apps=(
+    #     "visual-studio-code"
+    #     "iterm2"
+    # )
     
-    for app in "${cask_apps[@]}"; do
-        if brew list --cask "$app" >/dev/null 2>&1; then
-            print_status "success" "$app ya está instalado"
-        else
-            print_status "info" "Instalando $app..."
-            brew install --cask "$app" 2>/dev/null || print_status "warning" "No se pudo instalar $app (posiblemente ya existe)"
-        fi
-    done
+    # for app in "${cask_apps[@]}"; do
+    #     if brew list --cask "$app" >/dev/null 2>&1; then
+    #         print_status "success" "$app ya está instalado"
+    #     else
+    #         print_status "info" "Instalando $app..."
+    #         brew install --cask "$app" 2>/dev/null || print_status "warning" "No se pudo instalar $app (posiblemente ya existe)"
+    #     fi
+    # done
 }
 
 # Función para instalar Zsh y configurarlo como shell por defecto
