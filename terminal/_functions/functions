@@ -66,19 +66,14 @@ cdd() {
   cd "$(ls -d -- */ | fzf --preview 'ls -a {}')" || echo "Invalid directory"
 }
 
-jl() {
-  local proyect=$(ls ~/Code/jelou/ | fzf)
-  cd ~/Code/jelou/"$proyect" || exit
-}
-
 mc() {
   local proyect=$(ls ~/Code/mc/ | fzf)
   cd ~/Code/mc/"$proyect" || exit
 }
 
 inl() {
-  local proyect=$(ls ~/Code/intelnexo/ | fzf)
-  cd ~/Code/intelnexo/"$proyect" || exit
+  local proyect=$(ls ~/Code/inl/ | fzf)
+  cd ~/Code/inl/"$proyect" || exit
 }
 
 dev() {
@@ -160,8 +155,8 @@ dcu() {
     echo "No docker-compose files found in current directory."
     return 1
   elif [ ${#compose_files[@]} -eq 1 ]; then
-    echo "Using: ${compose_files[0]}"
-    docker-compose -f "${compose_files[0]}" up -d
+    echo "Using: ${compose_files}"
+    docker-compose -f "${compose_files}" up -d
   else
     echo "Multiple docker-compose files found:"
     local selected_file=$(printf "%s\n" "${compose_files[@]}" | fzf --prompt="Select docker-compose file: ")
